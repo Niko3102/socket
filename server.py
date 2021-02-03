@@ -41,3 +41,4 @@ while True:
         sock_service.send(dati)
 
     sock_service.close()
+    
