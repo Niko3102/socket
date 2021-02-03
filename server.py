@@ -31,14 +31,27 @@ while True:
         
         dati = dati.decode()
         print("Ricevuto: '%s'" % dati)
+
         if dati=='0':
             print("Chiudo la connessione con " + str(addr_client))
             break
-        dati = "Risposta a : " + str(addr_client) + ". Il valore del contatore è : " + str(contConn)
+        else:
+            separa = dati.split(";")
+            if(separa[0] == "piu"):
+                ris=float(separa[1])+float(separa[2])
+            elif(separa[0] == "meno"):
+                ris=float(separa[1])-float(separa[2])
+            elif(separa[0] == "per"):
+                ris=float(separa[1])*float(separa[2])
+            elif(separa[0] == "diviso"):
+                if(separa[2] != "0"):
+                    ris=float(separa[1])/float(separa[2])     
+                else:
+                    ris ="Divisione per 0 impossibile"
+        dati = "Risposta a : " + str(addr_client) + ". Il risultato di: " + separa[1] + " " + separa[0] + " " + separa[2] + " = " + str(ris)
 
         dati = dati.encode()
 
         sock_service.send(dati)
 
     sock_service.close()
-    
