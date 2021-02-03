@@ -38,14 +38,14 @@ while True:
         else:
             separa = dati.split(";")//separa i dati ricevuti tramite il punto e virgola (lo straforma in un array)
             if(separa[0] == "piu"):
-                ris=float(separa[1])+float(separa[2])
+                ris=float(separa[1])+float(separa[2])//somma
             elif(separa[0] == "meno"):
-                ris=float(separa[1])-float(separa[2])
+                ris=float(separa[1])-float(separa[2])//sottrazione
             elif(separa[0] == "per"):
-                ris=float(separa[1])*float(separa[2])
+                ris=float(separa[1])*float(separa[2])//moltipicazione
             elif(separa[0] == "diviso"):
-                if(separa[2] != "0"):
-                    ris=float(separa[1])/float(separa[2])     
+                if(separa[2] != "0")://controlla se il secondo numero è zero
+                    ris=float(separa[1])/float(separa[2])//divisione    
                 else:
                     ris ="Divisione per 0 impossibile"
         dati = "Risposta a : " + str(addr_client) + ". Il risultato di: " + separa[1] + " " + separa[0] + " " + separa[2] + " = " + str(ris)//mostra la risposta del client e il risultato delle varie operazioni 
