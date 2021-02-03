@@ -36,7 +36,7 @@ while True:
             print("Chiudo la connessione con " + str(addr_client))
             break
         else:
-            separa = dati.split(";")
+            separa = dati.split(";")//separa i dati ricevuti tramite il punto e virgola (lo straforma in un array)
             if(separa[0] == "piu"):
                 ris=float(separa[1])+float(separa[2])
             elif(separa[0] == "meno"):
@@ -48,7 +48,7 @@ while True:
                     ris=float(separa[1])/float(separa[2])     
                 else:
                     ris ="Divisione per 0 impossibile"
-        dati = "Risposta a : " + str(addr_client) + ". Il risultato di: " + separa[1] + " " + separa[0] + " " + separa[2] + " = " + str(ris)
+        dati = "Risposta a : " + str(addr_client) + ". Il risultato di: " + separa[1] + " " + separa[0] + " " + separa[2] + " = " + str(ris)//mostra la risposta del client e il risultato delle varie operazioni 
 
         dati = dati.encode()
 
